@@ -1,4 +1,4 @@
-const { generateText, createElement, validateInput } = require('./util');
+const { checkAndGenerate, createElement } = require('./util');
 
 const initApp = () => {
   // 앱 초기화 > 버튼 클릭 리스터 등록
@@ -11,18 +11,17 @@ const addUser = () => {
   const newUserNameInput = document.querySelector('input#name');
   const newUserAgeInput = document.querySelector('input#age');
 
-  if (
-    !validateInput(newUserNameInput.value, true, false) ||
-    !validateInput(newUserAgeInput.value, false, true)
-  ) {
+  const outputText = checkAndGenerate(
+    newUserNameInput.value,
+    newUserAgeInput.value
+  );
+
+  if (!outputText) {
     return;
   }
 
   const userList = document.querySelector('.user-list');
-  const outputText = generateText(
-    newUserNameInput.value,
-    newUserAgeInput.value
-  );
+
   const element = createElement('li', outputText, 'user-item');
   userList.appendChild(element);
 };
