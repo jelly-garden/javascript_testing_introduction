@@ -1,14 +1,13 @@
 const { generateText, createElement, validateInput } = require('./util');
 
 const initApp = () => {
-  // Initializes the app, registers the button click listener
+  // 앱 초기화 > 버튼 클릭 리스터 등록
   const newUserButton = document.querySelector('#btnAddUser');
   newUserButton.addEventListener('click', addUser);
 };
 
 const addUser = () => {
-  // Fetches the user input, creates a new HTML element based on it
-  // and appends the element to the DOM
+  // 사용자 입력을 가져오고, 새로운 HTML 요소를 생성하여 DOM 에 추가합니다.
   const newUserNameInput = document.querySelector('input#name');
   const newUserAgeInput = document.querySelector('input#age');
 
@@ -28,5 +27,5 @@ const addUser = () => {
   userList.appendChild(element);
 };
 
-// Start the app!
+// 앱 시작
 initApp();

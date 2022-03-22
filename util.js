@@ -1,10 +1,9 @@
 exports.generateText = (name, age) => {
-  // Returns output text
   return `${name} (${age} years old)`;
 };
 
 exports.createElement = (type, text, className) => {
-  // Creates a new HTML element and returns it
+  // HTML 요소를 생성하고 반환
   const newElement = document.createElement(type);
   newElement.classList.add(className);
   newElement.textContent = text;
@@ -12,14 +11,14 @@ exports.createElement = (type, text, className) => {
 };
 
 exports.validateInput = (text, notEmpty, isNumber) => {
-  // Validate user input with two pre-defined rules
+  // 유효성 검사 실행
   if (!text) {
     return false;
   }
   if (notEmpty && text.trim().length === 0) {
     return false;
   }
-  if (isNumber && +text === NaN) {
+  if (isNumber && isNaN(+text)) {
     return false;
   }
   return true;
